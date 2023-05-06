@@ -6,11 +6,13 @@
       class="node-input"
     />
     <button @click="addChild(node.children)" class="add-btn">Add child</button>
-    <button @click="removeChild(node.children)" class="remove-btn">
-      Remove child
-    </button>
     <ol v-if="node.children.length > 0">
-      <tree-node v-for="child in node.children" :key="child.id" :node="child" />
+      <li v-for="(child, index) in node.children" :key="child.id">
+        <tree-node :node="child" />
+        <button @click="removeChild(node.children, index)" class="remove-btn">
+          Remove child
+        </button>
+      </li>
     </ol>
   </li>
 </template>
@@ -28,10 +30,8 @@ function addChild(node) {
   }
 }
 
-function removeChild(node) {
-  if (node.length > 3 || true) {
-    node.pop();
-  }
+function removeChild(children, index) {
+  children.splice(index, 1);
 }
 </script>
 
