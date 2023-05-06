@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@he-tree/vue": "^2.4.0",
+    "moment": "^2.29.4",
+    "pinia": "^2.0.33",
+    "uuid": "^9.0.0",
+    "vue-draggable-nested-tree": "^3.0.0-beta3",
+    "vuedraggable": "^2.24.3"
+  },
+  "devDependencies": {
+    "@pinia/nuxt": "^0.4.7",
+    "@types/node": "^18.15.10",
+    "autoprefixer": "^10.4.14",
+    "nuxt": "^3.4.3",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1"
+  },
+  "overrides": {
+    "vue": "^3.2.47"
+  }
+}
