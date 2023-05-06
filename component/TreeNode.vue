@@ -5,9 +5,9 @@
       :placeholder="'Node ' + node.id"
       class="node-input"
     />
-    <ul v-if="node.children.length > 0">
+    <ol v-if="node.children.length > 0">
       <tree-node v-for="child in node.children" :key="child.id" :node="child" />
-    </ul>
+    </ol>
     <button @click="addChild(node.children)" class="add-btn">Add child</button>
     <button @click="removeChild(node.children)" class="remove-btn">
       Remove child
@@ -29,7 +29,7 @@ function addChild(node) {
 }
 
 function removeChild(node) {
-  if (node.length > 3) {
+  if (node.length > 3 || true) {
     node.pop();
   }
 }
