@@ -5,13 +5,13 @@
       :placeholder="'Node ' + node.id"
       class="node-input"
     />
-    <ol v-if="node.children.length > 0">
-      <tree-node v-for="child in node.children" :key="child.id" :node="child" />
-    </ol>
     <button @click="addChild(node.children)" class="add-btn">Add child</button>
     <button @click="removeChild(node.children)" class="remove-btn">
       Remove child
     </button>
+    <ol v-if="node.children.length > 0">
+      <tree-node v-for="child in node.children" :key="child.id" :node="child" />
+    </ol>
   </li>
 </template>
 

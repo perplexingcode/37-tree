@@ -1,13 +1,10 @@
 <template>
   <div>
-    <p>{{ rows }}</p>
-  </div>
-  <div>
+    <button @click="addChild(tree)">Add child</button>
+    <button @click="removeChild(tree)">Remove child</button>
     <ol>
       <tree-node v-for="node in tree" :key="node.id" :node="node" />
     </ol>
-    <button @click="addChild(tree)">Add child</button>
-    <button @click="removeChild(tree)">Remove child</button>
     <button @click="generateCSV()">Export to CSV</button>
   </div>
 </template>
@@ -114,8 +111,6 @@ function removeChild(node) {
     node.pop();
   }
 }
-
-let _rows = ref([]);
 
 function generateCSV() {
   function processNode(node, depth) {
