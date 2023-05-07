@@ -1,13 +1,22 @@
 <template>
-  <div>
-    <button @click="addChild(tree)">Add child</button>
-    <ol>
-      <li v-for="(node, index) in tree" :key="node.id">
-        <tree-node :node="node" />
-        <button @click="removeChild(tree, index)" class="remove-btn">X</button>
-      </li>
-    </ol>
-    <button @click="generateCSV()">Export to CSV</button>
+  <div id="main-wrap">
+    <div class="header">
+      <h1>Xây dựng cây 37</h1>
+      <button @click="generateCSV()" class="btn-download">
+        Tải xuống cây 37
+      </button>
+    </div>
+    <div>
+      <button @click="addChild(tree)">Thêm ý</button>
+      <ol>
+        <li v-for="(node, index) in tree" :key="node.id">
+          <tree-node :node="node" />
+          <button @click="removeChild(tree, index)" class="remove-btn">
+            Bỏ ý
+          </button>
+        </li>
+      </ol>
+    </div>
   </div>
 </template>
 
@@ -22,81 +31,49 @@ const tree = ref([
       {
         id: 2,
         text: 'A1',
-        children: [
-          {
-            id: 3,
-            text: 'A1a',
-            children: [
-              {
-                id: 4,
-                text: 'A1a1',
-                children: [],
-              },
-            ],
-          },
-          {
-            id: 5,
-            text: 'A1b',
-            children: [],
-          },
-        ],
+        children: [],
       },
       {
-        id: 6,
+        id: 3,
         text: 'A2',
         children: [],
       },
-    ],
-  },
-  {
-    id: 7,
-    text: 'B',
-    children: [
       {
-        id: 8,
-        text: 'B1',
-        children: [
-          {
-            id: 9,
-            text: 'B1a',
-            children: [],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 10,
-    text: 'C',
-    children: [
-      {
-        id: 11,
-        text: 'C1',
+        id: 4,
+        text: 'A3',
         children: [],
       },
       {
-        id: 12,
-        text: 'C2',
-        children: [
-          {
-            id: 13,
-            text: 'C2a',
-            children: [],
-          },
-          {
-            id: 14,
-            text: 'C2b',
-            children: [
-              {
-                id: 15,
-                text: 'C2b1',
-                children: [],
-              },
-            ],
-          },
-        ],
+        id: 5,
+        text: 'A4',
+        children: [],
+      },
+      {
+        id: 6,
+        text: 'A5',
+        children: [],
+      },
+      {
+        id: 7,
+        text: 'A6',
+        children: [],
+      },
+      {
+        id: 7,
+        text: 'A7',
+        children: [],
       },
     ],
+  },
+  {
+    id: 8,
+    text: 'B',
+    children: [],
+  },
+  {
+    id: 9,
+    text: 'C',
+    children: [],
   },
 ]);
 

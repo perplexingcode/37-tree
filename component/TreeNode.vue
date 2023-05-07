@@ -1,15 +1,14 @@
 <template>
-  <input
-    v-model="node.text"
-    :placeholder="'Node ' + node.id"
-    class="node-input"
-  />
-  <button @click="addChild(node.children)" class="add-btn">Add child</button>
-  <ol v-if="node.children.length > 0">
+  <button v-if="node.children.length > 0" @click="showChilren = !showChilren">
+    {{ showChilren ? '-' : '+' }}
+  </button>
+  <textarea v-model="node.text" class="node-input" />
+  <button @click="addChild(node.children)" class="add-btn">Thêm ý con</button>
+  <ol v-if="node.children.length > 0 && showChilren">
     <li v-for="(child, index) in node.children" :key="child.id">
       <tree-node :node="child" />
       <button @click="removeChild(node.children, index)" class="remove-btn">
-        X
+        Bỏ ý
       </button>
     </li>
   </ol>
@@ -19,6 +18,8 @@
 const props = defineProps({
   node: Object,
 });
+
+const showChilren = ref(true);
 
 function addChild(node) {
   const childCount = node.length;

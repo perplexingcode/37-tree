@@ -1,3 +1,28 @@
+body {
+  font-family: 'Comfortaa', sans-serif;
+  background-color: lightblue;
+}
+
+#main-wrap {
+  width: fit-content;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px #6661;
+}
+
+.header h1 {
+  margin-right: 3rem;
+  margin-left: 2rem;
+}
+
+/* List */
+
 li {
   position: relative;
   padding-left: 3rem;
@@ -5,9 +30,32 @@ li {
   margin-left: 1rem;
 }
 
+li :has(> li) {
+  margin-bottom: 1rem;
+  border: solid 1px #6661;
+  background-color: #6661;
+}
+
 .remove-btn {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 9;
+}
+
+.add-btn {
+  width: 3.5rem;
+  position: absolute;
+  top: 0;
+  z-index: 9;
+}
+
+/* Button */
+.btn-download {
+  padding: 0.5rem 1rem;
+  border: solid 1px #6661;
+  height: 2rem;
+  background-color: green;
+  color: #eee;
+  cursor: pointer;
 }
