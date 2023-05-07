@@ -1,5 +1,6 @@
 li {
   position: relative;
+  padding-left: 3rem;
   width: fit-content;
   margin-left: 1rem;
 }

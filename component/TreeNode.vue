@@ -1,20 +1,18 @@
 <template>
-  <li>
-    <input
-      v-model="node.text"
-      :placeholder="'Node ' + node.id"
-      class="node-input"
-    />
-    <button @click="addChild(node.children)" class="add-btn">Add child</button>
-    <ol v-if="node.children.length > 0">
-      <li v-for="(child, index) in node.children" :key="child.id">
-        <tree-node :node="child" />
-        <button @click="removeChild(node.children, index)" class="remove-btn">
-          Remove child
-        </button>
-      </li>
-    </ol>
-  </li>
+  <input
+    v-model="node.text"
+    :placeholder="'Node ' + node.id"
+    class="node-input"
+  />
+  <button @click="addChild(node.children)" class="add-btn">Add child</button>
+  <ol v-if="node.children.length > 0">
+    <li v-for="(child, index) in node.children" :key="child.id">
+      <tree-node :node="child" />
+      <button @click="removeChild(node.children, index)" class="remove-btn">
+        X
+      </button>
+    </li>
+  </ol>
 </template>
 
 <script setup>

@@ -1,9 +1,11 @@
 <template>
   <div>
     <button @click="addChild(tree)">Add child</button>
-    <button @click="removeChild(tree)">Remove child</button>
     <ol>
-      <tree-node v-for="node in tree" :key="node.id" :node="node" />
+      <li v-for="(node, index) in tree" :key="node.id">
+        <tree-node :node="node" />
+        <button @click="removeChild(tree, index)" class="remove-btn">X</button>
+      </li>
     </ol>
     <button @click="generateCSV()">Export to CSV</button>
   </div>
@@ -106,10 +108,8 @@ function addChild(node) {
   }
 }
 
-function removeChild(node) {
-  if (node.length > 3) {
-    node.pop();
-  }
+function removeChild(tree, index) {
+  tree.splice(index, 1);
 }
 
 function generateCSV() {
