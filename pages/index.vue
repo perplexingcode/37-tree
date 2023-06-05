@@ -22,6 +22,9 @@
 
 <script setup>
 import TreeNode from '~/component/TreeNode.vue';
+import { getById, upsert } from '~/static/db';
+import debounce from 'lodash.debounce';
+import { nextTick } from 'process';
 
 const tree = ref([
   {
@@ -76,6 +79,29 @@ const tree = ref([
     children: [],
   },
 ]);
+
+onMounted(async () => {
+  //fetch tree from aws dynamodb
+  const bruh = await getById('management_var', '37tree');
+  console.log('bruh', bruh);
+  nextTick(() => {
+    if (tree.data?._rawValue.value) {
+      console.log('dung');
+      tree.value = JSON.parse(bruh);
+    }
+  });
+});
+
+watch(
+  tree,
+  debounce(async (tree) => {
+    console.log('chat');
+    // save tree to aws dynamodb
+    console.log(tree.value);
+    await upsert('management_var', { id: '37tree', value: tree });
+  }, 500),
+  { deep: true }
+);
 
 function addChild(node) {
   const childCount = node.length;
